@@ -1,2567 +1,436 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<title>Poetry (2016-)</title>
-		<base href="." />
-		<meta name="pathname" content="poetry-(2016-).html" />
-		<meta
-			name="description"
-			content="Rumi’s Writing Portfolio - Poetry (2016-)"
-		/>
-		<meta property="og:title" content="Poetry (2016-)" />
-		<meta
-			property="og:description"
-			content="Rumi’s Writing Portfolio - Poetry (2016-)"
-		/>
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="poetry-(2016-).html" />
-		<meta property="og:image" content="undefined" />
-		<meta charset="UTF-8" />
-		<meta property="og:site_name" content="Rumi’s Writing Portfolio" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0"
-		/>
-		<script
-			async=""
-			id="webpage-script"
-			src="site-lib/scripts/webpage.js"
-			onload="
-				this.onload = null;
-				this.setAttribute('loaded', 'true');
-			"
-		></script>
-		<link rel="icon" href="site-lib/media/favicon.png" />
-		<link
-			rel="preload"
-			href="site-lib/styles/snippets.css"
-			as="style"
-			onload="
-				this.onload = null;
-				this.rel = 'stylesheet';
-			"
-		/>
-		<noscript
-			><link rel="stylesheet" href="site-lib/styles/snippets.css"
-		/></noscript>
-		<link rel="stylesheet" href="site-lib/styles/obsidian.css" />
-		<link rel="stylesheet" href="site-lib/styles/theme.css" />
-		<link
-			rel="preload"
-			href="site-lib/styles/global-variable-styles.css"
-			as="style"
-			onload="
-				this.onload = null;
-				this.rel = 'stylesheet';
-			"
-		/>
-		<noscript
-			><link
-				rel="stylesheet"
-				href="site-lib/styles/global-variable-styles.css"
-		/></noscript>
-		<link
-			rel="preload"
-			href="site-lib/styles/supported-plugins.css"
-			as="style"
-			onload="
-				this.onload = null;
-				this.rel = 'stylesheet';
-			"
-		/>
-		<noscript
-			><link
-				rel="stylesheet"
-				href="site-lib/styles/supported-plugins.css"
-		/></noscript>
-		<link
-			rel="preload"
-			href="site-lib/styles/main-styles.css"
-			as="style"
-			onload="
-				this.onload = null;
-				this.rel = 'stylesheet';
-			"
-		/>
-		<noscript
-			><link rel="stylesheet" href="site-lib/styles/main-styles.css"
-		/></noscript>
-		<style>
-			body {
-				--line-width: 40em;
-				--line-width-adaptive: 40em;
-				--file-line-width: 40em;
-				--sidebar-width: min(20em, 80vw);
-				--collapse-arrow-size: 11px;
-				--tree-vertical-spacing: 1.3em;
-				--sidebar-margin: 12px;
-			}
-			:root {
-				background-color: #202124;
-			}
-			.sidebar {
-				height: 100%;
-				font-size: 14px;
-				z-index: 10;
-				min-width: calc(
-					var(--sidebar-width) + var(--divider-width-hover)
-				);
-				max-width: calc(
-					var(--sidebar-width) + var(--divider-width-hover)
-				);
-				position: relative;
-				overflow: hidden;
-				overflow: clip;
-				transition:
-					min-width ease-in-out,
-					max-width ease-in-out;
-				transition-duration: 0.2s;
-				contain: size;
-			}
-			#left-sidebar {
-				left: 0;
-			}
-			#right-sidebar {
-				right: 0;
-			}
-			.sidebar.is-collapsed {
-				min-width: 0;
-				max-width: 0;
-			}
-			.sidebar.floating {
-				position: absolute;
-			}
-			.sidebar .leaf-content {
-				height: 100%;
-				min-width: calc(
-					var(--sidebar-width) - var(--divider-width-hover)
-				);
-				top: 0;
-				padding: var(--sidebar-margin);
-				padding-top: 4em;
-				line-height: var(--line-height-tight);
-				background-color: var(--background-secondary);
-				transition:
-					background-color, border-right, border-left, box-shadow;
-				transition-duration: var(--color-fade-speed);
-				transition-timing-function: ease-in-out;
-				position: absolute;
-				display: flex;
-				flex-direction: column;
-			}
-			.sidebar:not(.is-collapsed) .leaf-content {
-				min-width: calc(max(100%, var(--sidebar-width)) - 3px);
-				max-width: calc(max(100%, var(--sidebar-width)) - 3px);
-			}
-			#left-sidebar-content {
-				left: 0;
-				border-top-right-radius: var(--radius-l);
-				border-bottom-right-radius: var(--radius-l);
-			}
-			#right-sidebar-content {
-				right: 0;
-				border-top-left-radius: var(--radius-l);
-				border-bottom-left-radius: var(--radius-l);
-			}
-			.sidebar #left-sidebar-content,
-			.sidebar #right-sidebar-content {
-				contain: none !important;
-				container-type: normal !important;
-				animation: none !important;
-			}
-			.sidebar:has(.leaf-content:empty):has(.topbar-content:empty) {
-				display: none;
-			}
-			.sidebar-topbar {
-				height: calc(2.3em + 2 * var(--sidebar-margin));
-				width: var(--sidebar-width);
-				padding: var(--sidebar-margin);
-				z-index: 1;
-				position: fixed;
-				display: flex;
-				align-items: center;
-				transition: width ease-in-out;
-				transition-duration: inherit;
-			}
-			.sidebar.is-collapsed .sidebar-topbar {
-				width: calc(2.3em + var(--sidebar-margin) * 2);
-			}
-			.sidebar .sidebar-topbar.is-collapsed {
-				width: 0;
-			}
-			#left-sidebar .sidebar-topbar {
-				left: 0;
-				flex-direction: row;
-				border-top-right-radius: var(--radius-l);
-			}
-			#right-sidebar .sidebar-topbar {
-				right: 0;
-				flex-direction: row-reverse;
-				border-top-left-radius: var(--radius-l);
-			}
-			#left-sidebar .topbar-content {
-				margin-right: calc(2.3em + var(--sidebar-margin));
-				flex-direction: row;
-			}
-			#right-sidebar .topbar-content {
-				margin-left: calc(2.3em + var(--sidebar-margin));
-				flex-direction: row-reverse;
-			}
-			.topbar-content {
-				overflow: hidden visible;
-				overflow: clip visible;
-				width: 100%;
-				height: 100%;
-				display: flex;
-				align-items: center;
-				transition: inherit;
-			}
-			.sidebar.is-collapsed .topbar-content {
-				width: 0;
-				transition: inherit;
-			}
-			.clickable-icon.sidebar-collapse-icon {
-				background-color: transparent;
-				color: var(--icon-color-focused);
-				padding: 2px !important;
-				margin: 0 !important;
-				height: 100% !important;
-				width: 2.3em !important;
-				margin-inline: 0.14em !important;
-				position: absolute;
-			}
-			#left-sidebar .clickable-icon.sidebar-collapse-icon {
-				right: var(--sidebar-margin);
-			}
-			#right-sidebar .clickable-icon.sidebar-collapse-icon {
-				transform: scaleX(-1);
-				transform-origin: center;
-				left: var(--sidebar-margin);
-			}
-			.clickable-icon.sidebar-collapse-icon svg.svg-icon {
-				width: 80%;
-				height: 80%;
-			}
-			.sidebar:not(.is-collapsed)
-				.clickable-icon.sidebar-collapse-icon
-				svg.svg-icon
-				.sidebar-toggle-icon-inner {
-				width: 24%;
-			}
-			.feature-title {
-				margin-left: 1px;
-				text-transform: uppercase;
-				letter-spacing: 0.06em;
-				margin-top: 0.75em;
-				margin-bottom: 0.75em;
-			}
-			.feature-header {
-				display: flex;
-				align-items: center;
-				padding-top: 0;
-				font-size: 1em;
-				padding-left: 0;
-			}
-			body.floating-sidebars .sidebar {
-				position: absolute;
-			}
-			body {
-				transition: background-color var(--color-fade-speed) ease-in-out;
-			}
-			#navbar:not(:empty) {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				padding: 0.5em 1em;
-				width: 100%;
-			}
-			#main {
-				display: flex;
-				flex-direction: column;
-				height: 100%;
-				width: 100%;
-				align-items: stretch;
-				justify-content: center;
-			}
-			#main-horizontal {
-				display: flex;
-				flex-direction: row;
-				flex-grow: 1;
-				width: 100%;
-				align-items: stretch;
-				justify-content: center;
-			}
-			#center-content {
-				flex-basis: 100%;
-				max-width: 100%;
-				width: 100%;
-				height: 100%;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				transition: opacity 0.2s ease-in-out;
-				contain: inline-size;
-			}
-			.hide {
-				opacity: 0 !important;
-				transition: opacity 0.2s ease-in-out;
-				pointer-events: none;
-			}
-			#center-content > .obsidian-document {
-				padding-left: 2em;
-				padding-right: 1em;
-				margin-bottom: 0;
-				width: 100%;
-				width: -webkit-fill-available;
-				width: -moz-available;
-				width: fill-available;
-				transition: background-color var(--color-fade-speed) ease-in-out;
-				border-top-right-radius: var(--window-radius, var(--radius-m));
-				border-top-left-radius: var(--window-radius, var(--radius-m));
-				overflow-x: hidden !important;
-				overflow-y: auto !important;
-				display: flex !important;
-				flex-direction: column !important;
-				align-items: center !important;
-				contain: inline-size;
-			}
-			body
-				#center-content
-				> .obsidian-document
-				> .markdown-preview-sizer {
-				padding-bottom: 80vh;
-				width: 100%;
-				max-width: var(--line-width);
-				flex-basis: var(--line-width);
-				transition: background-color var(--color-fade-speed) ease-in-out;
-				contain: inline-size;
-			}
-			#center-content > .obsidian-document > div {
-				width: 100% !important;
-				transition: background-color var(--color-fade-speed) ease-in-out;
-				contain: inline-size;
-			}
-			#center-content
-				> .obsidian-document:not([data-type="markdown"]).embed {
-				display: flex;
-				padding: 1em;
-				height: 100%;
-				width: 100%;
-				align-items: center;
-				justify-content: center;
-			}
-			#center-content
-				> .obsidian-document:not([data-type="markdown"]).embed
-				> * {
-				max-width: 100%;
-				max-height: 100%;
-				object-fit: contain;
-			}
-			:not(h1, h2, h3, h4, h5, h6, li):has(> :is(.math, table)) {
-				overflow-x: auto !important;
-			}
-			#center-content > .obsidian-document:not([data-type="markdown"]) {
-				overflow-x: auto;
-				contain: content;
-				padding: 0;
-				margin: 0;
-				height: 100%;
-			}
-			.obsidian-document[data-type="attachment"] {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				height: 100%;
-				width: 100%;
-			}
-			.obsidian-document[data-type="attachment"] > * {
-				outline: 0;
-				border: none;
-				box-shadow: none;
-			}
-			.obsidian-document[data-type="attachment"] :is(img) {
-				max-width: 90%;
-				max-height: 90%;
-				object-fit: contain;
-			}
-			.obsidian-document[data-type="attachment"] > :is(audio) {
-				width: 100%;
-				max-width: min(90%, var(--line-width));
-			}
-			.obsidian-document[data-type="attachment"]
-				> :is(embed, iframe, video) {
-				width: 100%;
-				height: 100%;
-				max-width: 100%;
-				max-height: 100%;
-				object-fit: contain;
-			}
-			.canvas-wrapper > :is(.header, .footer) {
-				z-index: 100;
-				position: absolute;
-				display: flex;
-				justify-content: center;
-				flex-direction: column;
-				width: 100%;
-				align-items: center;
-			}
-			.scroll-highlight {
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				pointer-events: none;
-				z-index: 1000;
-				background-color: hsla(var(--color-accent-hsl), 0.25);
-				opacity: 0;
-				padding: 1em;
-				inset: 50%;
-				translate: -50% -50%;
-				border-radius: var(--radius-s);
-			}
-		</style>
-		<script defer="">
-			async function loadIncludes() {
-				let e = document.querySelectorAll("link[itemprop='include']");
-				for (const t of e) {
-					let e = t.getAttribute("href");
-					try {
-						let o = "";
-						if (
-							e.startsWith("https:") ||
-							e.startsWith("http:") ||
-							"file:" != window.location.protocol
-						) {
-							const n = await fetch(e);
-							if (!n.ok) {
-								(console.log("Could not include file: " + e),
-									t?.remove());
-								continue;
-							}
-							o = await n.text();
-						} else {
-							const t = document.getElementById(
-								btoa(encodeURI(e)),
-							);
-							if (t) {
-								const e = JSON.parse(
-									decodeURI(
-										atob(t.getAttribute("value") ?? ""),
-									),
-								);
-								o = e?.data ?? "";
-							}
-						}
-						let n = document
-							.createRange()
-							.createContextualFragment(o);
-						(t.before(n),
-							t.remove(),
-							console.log("Included text: " + o),
-							console.log("Included file: " + e));
-					} catch (o) {
-						(t?.remove(),
-							console.log("Could not include file: " + e, o));
-						continue;
-					}
-				}
-			}
-			document.addEventListener("DOMContentLoaded", () => {
-				loadIncludes();
-			});
-			let isFileProtocol = "file:" == location.protocol;
-			function waitLoadScripts(e, t) {
-				let o = e.map((e) => document.getElementById(e + "-script"));
-				!(function e(n) {
-					let l = o[n],
-						c = n + 1;
-					l
-						? ((l && "true" != l.getAttribute("loaded")) ||
-								(n < o.length && e(c)),
-							n < o.length &&
-								l.addEventListener("load", () => e(c)))
-						: n < o.length
-							? e(c)
-							: t();
-				})(0);
-			}
-		</script>
-	</head>
-	<body
-		class="publish css-settings-manager mod-windows is-hidden-frameless styled-scrollbars show-view-header minimal-default-light minimal-flexoki-dark borders-none colorful-frame links-int-on links-ext-on full-width-media trim-cols h1-l sidebar-tabs-plain-square tab-names-on table-lines tabs-plain-square is-focused"
-	>
-		<script defer="">
-			let theme =
-				localStorage.getItem("theme") ||
-				(window.matchMedia("(prefers-color-scheme: dark)").matches
-					? "dark"
-					: "light");
-			("dark" == theme
-				? (document.body.classList.add("theme-dark"),
-					document.body.classList.remove("theme-light"))
-				: (document.body.classList.add("theme-light"),
-					document.body.classList.remove("theme-dark")),
-				window.innerWidth < 480
-					? document.body.classList.add("is-phone")
-					: window.innerWidth < 768
-						? document.body.classList.add("is-tablet")
-						: window.innerWidth < 1024
-							? document.body.classList.add("is-small-screen")
-							: document.body.classList.add("is-large-screen"));
-		</script>
-		<div id="main">
-			<div id="navbar"></div>
-			<div id="main-horizontal">
-				<div
-					id="left-content"
-					class="leaf"
-					style="--sidebar-width: var(--sidebar-width-left)"
-				>
-					<div id="left-sidebar" class="sidebar">
-						<div class="sidebar-handle"></div>
-						<div class="sidebar-topbar">
-							<div class="topbar-content">
-								<div id="search-container">
-									<div id="search-wrapper">
-										<input
-											enterkeyhint="search"
-											type="search"
-											spellcheck="false"
-											placeholder="Search..."
-										/>
-										<div
-											aria-label="Clear search"
-											id="search-clear-button"
-										></div>
-									</div>
-								</div>
-								<label
-									class="theme-toggle-container"
-									for="theme-toggle-input"
-									id=""
-									><input
-										class="theme-toggle-input"
-										type="checkbox"
-										id="theme-toggle-input" />
-									<div class="toggle-background"></div
-								></label>
-							</div>
-							<div class="clickable-icon sidebar-collapse-icon">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									class="svg-icon sidebar-toggle-button-icon"
-								>
-									<rect
-										x="1"
-										y="2"
-										width="22"
-										height="20"
-										rx="4"
-									></rect>
-									<rect
-										x="4"
-										y="5"
-										width="2"
-										height="14"
-										rx="2"
-										fill="currentColor"
-										class="sidebar-toggle-icon-inner"
-									></rect>
-								</svg>
-							</div>
-						</div>
-						<div class="sidebar-content-wrapper">
-							<div id="left-sidebar-content" class="leaf-content">
-								<link
-									itemprop="include"
-									href="site-lib/html/file-tree-content.html"
-								/>
-								<div id="outline" class="tree-container">
-									<div class="feature-header">
-										<div class="feature-title">
-											Table Of Contents
-										</div>
-										<button
-											class="clickable-icon nav-action-button tree-collapse-all"
-											aria-label="Collapse All"
-										>
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												width="24"
-												height="24"
-												viewBox="0 0 24 24"
-												fill="none"
-												stroke="currentColor"
-												stroke-width="2"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-											></svg>
-										</button>
-									</div>
-									<div
-										class="tree-item mod-collapsible"
-										data-depth="1"
-									>
-										<a
-											class="tree-item-self is-clickable mod-collapsible"
-											href="#Poetry_(2016-)_0"
-											data-path="#Poetry_(2016-)_0"
-											><div
-												class="tree-item-icon collapse-icon"
-											>
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													width="24"
-													height="24"
-													viewBox="0 0 24 24"
-													fill="none"
-													stroke="currentColor"
-													stroke-width="2"
-													stroke-linecap="round"
-													stroke-linejoin="round"
-													class="svg-icon right-triangle"
-												>
-													<path
-														d="M3 8L12 17L21 8"
-													></path>
-												</svg>
-											</div>
-											<div
-												class="tree-item-inner heading-link"
-												heading-name="Poetry (2016-)"
-											>
-												Poetry (2016-)
-											</div></a
-										>
-										<div class="tree-item-children">
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Introduction_0"
-													data-path="#Introduction_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Introduction"
-													>
-														Introduction
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Another_Day,_Another_Time_(2019)_0"
-													data-path="#Another_Day,_Another_Time_(2019)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Another Day, Another Time (2019)"
-													>
-														Another Day, Another
-														Time (2019)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Eyes_(2018)_0"
-													data-path="#Eyes_(2018)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Eyes (2018)"
-													>
-														Eyes (2018)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Knife_(2018)_0"
-													data-path="#Knife_(2018)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Knife (2018)"
-													>
-														Knife (2018)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Blur_(2018)_0"
-													data-path="#Blur_(2018)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Blur (2018)"
-													>
-														Blur (2018)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Wings_(2017)_0"
-													data-path="#Wings_(2017)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Wings (2017)"
-													>
-														Wings (2017)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Guitar_(2017)_0"
-													data-path="#Guitar_(2017)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Guitar (2017)"
-													>
-														Guitar (2017)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Mind_(2017)_0"
-													data-path="#Mind_(2017)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Mind (2017)"
-													>
-														Mind (2017)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#River_(2017)_0"
-													data-path="#River_(2017)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="River (2017)"
-													>
-														River (2017)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Ears_(2017)_0"
-													data-path="#Ears_(2017)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Ears (2017)"
-													>
-														Ears (2017)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Mulaqaat_(2017)_0"
-													data-path="#Mulaqaat_(2017)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Mulaqaat (2017)"
-													>
-														Mulaqaat (2017)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Acquaintance_(2017)_0"
-													data-path="#Acquaintance_(2017)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Acquaintance (2017)"
-													>
-														Acquaintance (2017)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Four_(2017)_0"
-													data-path="#Four_(2017)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Four (2017)"
-													>
-														Four (2017)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Poetry_(2017)_0"
-													data-path="#Poetry_(2017)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Poetry (2017)"
-													>
-														Poetry (2017)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Enemy_(2017)_0"
-													data-path="#Enemy_(2017)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Enemy (2017)"
-													>
-														Enemy (2017)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Apathy_(2016)_0"
-													data-path="#Apathy_(2016)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Apathy (2016)"
-													>
-														Apathy (2016)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item mod-collapsible"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable mod-collapsible"
-													href="#Haikus_(2016–2017)_0"
-													data-path="#Haikus_(2016–2017)_0"
-													><div
-														class="tree-item-icon collapse-icon"
-													>
-														<svg
-															xmlns="http://www.w3.org/2000/svg"
-															width="24"
-															height="24"
-															viewBox="0 0 24 24"
-															fill="none"
-															stroke="currentColor"
-															stroke-width="2"
-															stroke-linecap="round"
-															stroke-linejoin="round"
-															class="svg-icon right-triangle"
-														>
-															<path
-																d="M3 8L12 17L21 8"
-															></path>
-														</svg>
-													</div>
-													<div
-														class="tree-item-inner heading-link"
-														heading-name="Haikus (2016–2017)"
-													>
-														Haikus (2016–2017)
-													</div></a
-												>
-												<div class="tree-item-children">
-													<div
-														class="tree-item"
-														data-depth="3"
-													>
-														<a
-															class="tree-item-self is-clickable"
-															href="#Cosmos_(2017)_0"
-															data-path="#Cosmos_(2017)_0"
-															><div
-																class="tree-item-inner heading-link"
-																heading-name="Cosmos (2017)"
-															>
-																Cosmos (2017)
-															</div></a
-														>
-														<div
-															class="tree-item-children"
-														></div>
-													</div>
-													<div
-														class="tree-item"
-														data-depth="3"
-													>
-														<a
-															class="tree-item-self is-clickable"
-															href="#Time_(2016)_0"
-															data-path="#Time_(2016)_0"
-															><div
-																class="tree-item-inner heading-link"
-																heading-name="Time (2016)"
-															>
-																Time (2016)
-															</div></a
-														>
-														<div
-															class="tree-item-children"
-														></div>
-													</div>
-													<div
-														class="tree-item"
-														data-depth="3"
-													>
-														<a
-															class="tree-item-self is-clickable"
-															href="#Paths_(2016)_0"
-															data-path="#Paths_(2016)_0"
-															><div
-																class="tree-item-inner heading-link"
-																heading-name="Paths (2016)"
-															>
-																Paths (2016)
-															</div></a
-														>
-														<div
-															class="tree-item-children"
-														></div>
-													</div>
-													<div
-														class="tree-item"
-														data-depth="3"
-													>
-														<a
-															class="tree-item-self is-clickable"
-															href="#Sirens_(2016)_0"
-															data-path="#Sirens_(2016)_0"
-															><div
-																class="tree-item-inner heading-link"
-																heading-name="Sirens (2016)"
-															>
-																Sirens (2016)
-															</div></a
-														>
-														<div
-															class="tree-item-children"
-														></div>
-													</div>
-													<div
-														class="tree-item"
-														data-depth="3"
-													>
-														<a
-															class="tree-item-self is-clickable"
-															href="#Brilliant_(2016)_0"
-															data-path="#Brilliant_(2016)_0"
-															><div
-																class="tree-item-inner heading-link"
-																heading-name="Brilliant (2016)"
-															>
-																Brilliant (2016)
-															</div></a
-														>
-														<div
-															class="tree-item-children"
-														></div>
-													</div>
-													<div
-														class="tree-item"
-														data-depth="3"
-													>
-														<a
-															class="tree-item-self is-clickable"
-															href="#Knots_(2016)_0"
-															data-path="#Knots_(2016)_0"
-															><div
-																class="tree-item-inner heading-link"
-																heading-name="Knots (2016)"
-															>
-																Knots (2016)
-															</div></a
-														>
-														<div
-															class="tree-item-children"
-														></div>
-													</div>
-												</div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Boat_(2016)_0"
-													data-path="#Boat_(2016)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Boat (2016)"
-													>
-														Boat (2016)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#Listen_(2016)_0"
-													data-path="#Listen_(2016)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="Listen (2016)"
-													>
-														Listen (2016)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-											<div
-												class="tree-item"
-												data-depth="2"
-											>
-												<a
-													class="tree-item-self is-clickable"
-													href="#The_Machine_(2016)_0"
-													data-path="#The_Machine_(2016)_0"
-													><div
-														class="tree-item-inner heading-link"
-														heading-name="The Machine (2016)"
-													>
-														The Machine (2016)
-													</div></a
-												>
-												<div
-													class="tree-item-children"
-												></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<script defer="">
-							let ls = document.querySelector("#left-sidebar");
-							ls.classList.toggle(
-								"is-collapsed",
-								window.innerWidth < 768,
-							);
-							ls.style.setProperty(
-								"--sidebar-width",
-								localStorage.getItem("sidebar-left-width"),
-							);
-						</script>
-					</div>
-				</div>
-				<div id="center-content" class="leaf">
-					<div
-						class="obsidian-document markdown-preview-view markdown-rendered node-insert-event is-readable-line-width show-indentation-guide"
-						data-type="markdown"
-					>
-						<style id="MJX-CHTML-styles"></style>
-						<div
-							class="markdown-preview-sizer markdown-preview-section"
-						>
-							<div class="header">
-								<h1
-									class="page-title heading"
-									id="Poetry_(2016-)_0"
-								>
-									Poetry (2016-)
-								</h1>
-								<div class="data-bar"></div>
-							</div>
-							<div
-								class="markdown-preview-pusher"
-								style="
-									width: 1px;
-									height: 0.1px;
-									margin-bottom: 0px;
-								"
-							></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Introduction"
-									dir="auto"
-									class="heading"
-									id="Introduction_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Introduction
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									My first considerable brush with poetry was
-									at around eight or nine years of age, with a
-									free verse piece I wrote for an online
-									poetry community, but I did not pursue the
-									hobby seriously until I was fifteen, when it
-									became my primary method to cope with and
-									channel intense thoughts and emotions.
-									Written here is a select section of my work
-									in the medium starting from what I wrote
-									then, in descending order of year of
-									writing.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Another Day, Another Time (2019)"
-									dir="auto"
-									class="heading"
-									id="Another_Day,_Another_Time_(2019)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Another Day, Another Time (2019)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									It’s easy to do your job all fine<br />
-									Get yourself a raise a noon<br />
-									You go home, drink a glass of wine<br />
-									But there’s a thousand things to do<br />
-									But all the clocks approach midnight<br />
-									As He sounds the bells of doom<br />
-									That’s the life you’ve got to live<br />
-									For being you<br />
-									<br />
-									It’s easy to pick up the telephone<br />
-									Call a friend you’re meeting soon<br />
-									You tell them things don’t seem alright<br />
-									And they say they feel so too<br />
-									And all the faith you had, at once<br />
-									Leaves crashing through the roof<br />
-									That’s the life you’ve got to live<br />
-									For being you<br />
-									<br />
-									It’s easy to let go of everything<br />
-									When your head splits into two<br />
-									You’re dazed and wrapped in delusion<br />
-									“Surely, this could not be true”<br />
-									But all the sanity that’s left<br />
-									Declares you’ve gone cuckoo<br />
-									That’s the life you’ve got to live<br />
-									For being you.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Eyes (2018)"
-									dir="auto"
-									class="heading"
-									id="Eyes_(2018)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Eyes (2018)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									I open wide my eyes.<br />
-									Gazing upon the air,<br />
-									The living seem to die.<br />
-									<br />
-									I swiftly shut my eyes.<br />
-									Drawn bold into pitch black,<br />
-									Their demise comes alive.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Knife (2018)"
-									dir="auto"
-									class="heading"
-									id="Knife_(2018)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Knife (2018)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									Holding a knife in your hand,<br />
-									Stand in front of a mirror.<br />
-									Point the blade at your image.<br />
-									Do ask yourself for consent,<br />
-									Lest it turns into murder.<br />
-									When you feel like losing it,<br />
-									Stab the image in the heart.<br />
-									Run your hands over the cracks;<br />
-									Wear them with pride. Love yourself.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Blur (2018)"
-									dir="auto"
-									class="heading"
-									id="Blur_(2018)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Blur (2018)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									Monday was a blur<br />
-									Tuesday was absurd and<br />
-									Wednesday could’ve been better<br />
-									And Thursday was a burden<br />
-									<br />
-									On Friday I broke down<br />
-									On Saturday I’m crying<br />
-									Sunday, I’m in bed<br />
-									I look at myself dying<br />
-									<br />
-									If I told myself it’d all be fine
-									tomorrow<br />
-									I’d live to hope I’m wrong.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Wings (2017)"
-									dir="auto"
-									class="heading"
-									id="Wings_(2017)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Wings (2017)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									A friend once told me of a male<br />
-									Whose life was dull and oft in vain<br />
-									Until, one night, amidst the black<br />
-									A violent pain surged through his back<br />
-									<br />
-									Looking to the mirror, he saw<br />
-									A bump or bruise begin to form<br />
-									Further into the night, confused<br />
-									He felt his spine split into two<br />
-									<br />
-									As darkness succumbed to morning<br />
-									He woke up wrapped in crimson sheets<br />
-									A bit of bone’d torn through the flesh<br />
-									His back grew numb, the pain suppressed<br />
-									<br />
-									The light gave way to dark unseen<br />
-									A strange feeling began to creep<br />
-									The male, for all the hurt it took<br />
-									Could not resist the urge to look<br />
-									<br />
-									But in the mirror, broken cold<br />
-									Stood a grotesque of tangled bone<br />
-									Around the pink, there’d grown a skin<br />
-									Stretched lifeless, nearly paper-thin<br />
-									<br />
-									At dawn came contempt and disgust<br />
-									A sense of wonder followed dusk<br />
-									Stroking his newfound pair of wings<br />
-									The male now cried in vanity<br />
-									<br />
-									Next day, while he was still in bed<br />
-									He tried to choke himself to death<br />
-									The wings began to flutter wild<br />
-									His face, now blue, let out a smile<br />
-									<br />
-									The man had died, the body’d killed<br />
-									The wings spread out devoid of guilt<br />
-									A splash of blood, a test of might<br />
-									The bird had now begun its flight.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Guitar (2017)"
-									dir="auto"
-									class="heading"
-									id="Guitar_(2017)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Guitar (2017)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									I have a guitar at my place<br />
-									It isn’t mine, but takes no space<br />
-									The strings are loose, the board’s abused<br />
-									But somehow it sounds like it should<br />
-									<br />
-									The owner came in yesterday<br />
-									To tell me it didn’t look the same<br />
-									He blamed me for the mess I’d made<br />
-									I told him, no, I couldn’t play<br />
-									<br />
-									If I stand close and take a look<br />
-									I see a face on polished wood<br />
-									The skin is loose, the lips abused<br />
-									But it feels just the way it should<br />
-									<br />
-									For now, the guitar has no home<br />
-									It stays with me, yet stays alone<br />
-									But when I’ve cleaned the mess I’ve made<br />
-									I’ll sit down, play it to my grave.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Mind (2017)"
-									dir="auto"
-									class="heading"
-									id="Mind_(2017)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Mind (2017)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									I have, indeed, lost my mind.<br />
-									It should not be surprising,<br />
-									Considering the fact that<br />
-									It’s been on my mind for weeks.<br />
-									<br />
-									A textbook case of drainage<br />
-									Of the brain through the nostrils<br />
-									Seems to be behind the loss.<br />
-									An old trick, but effective.<br />
-									<br />
-									Right here is where I first felt<br />
-									A lack of nervous tissue—<br />
-									Never mind. It’s still with me.<br />
-									Must’ve lost my mind again.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="River (2017)"
-									dir="auto"
-									class="heading"
-									id="River_(2017)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>River (2017)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									I see a river flow.<br />
-									I ask it where it goes.<br />
-									I receive no response.<br />
-									<br />
-									I run my hand along.<br />
-									I feel it moving strong.<br />
-									I asked the wrong question.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Ears (2017)"
-									dir="auto"
-									class="heading"
-									id="Ears_(2017)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Ears (2017)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									I once heard a distinct noise,<br />
-									The kind that brings distraction.<br />
-									I looked outside my window;<br />
-									The noise was a man’s, in white.<br />
-									<br />
-									I walked outside to ask him<br />
-									What the noise was all about.<br />
-									The man did not respond, but<br />
-									I could see him take it in.<br />
-									<br />
-									A victim of distraction,<br />
-									I wanted the noise to stop.<br />
-									As I began to speak so,<br />
-									I noticed the man lacked ears.<br />
-									<br />
-									Figuring the man could read,<br />
-									I wrote on a paper sheet,<br />
-									“Must you really make this noise<br />
-									To bring to us distraction?”<br />
-									<br />
-									The man read what I’d written<br />
-									And seemed to smile a little.<br />
-									He took the pen I wrote with,<br />
-									And replied in soft cursive,<br />
-									<br />
-									“I too had been distracted<br />
-									By the noise that plagues us all.<br />
-									Since I knew it would not stop,<br />
-									I cut my ears off my head.<br />
-									<br />
-									“Would you be interested<br />
-									In buying, fifty apiece?<br />
-									They are old, but sensitive;<br />
-									They ought to fit your sockets.”<br />
-									<br />
-									The idea was marvellous.<br />
-									I went back home, where I’d been,<br />
-									Collected what I needed,<br />
-									And hurried back to the man.<br />
-									<br />
-									Handing over my own ears,<br />
-									I wrote another message,<br />
-									“Here is my pair, freshly cut.<br />
-									We could sell them together.”<br />
-									<br />
-									I have not heard the noise since,<br />
-									It brings me no distraction.<br />
-									Would you like to buy our ears?<br />
-									Mine are young; sixty apiece.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Mulaqaat (2017)"
-									dir="auto"
-									class="heading"
-									id="Mulaqaat_(2017)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Mulaqaat (2017)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									बंद दरवाज़े खुले हमारे<br />
-									क्या दिन है, क्या रात है<br />
-									पल भर दूरी, सांस अधूरी<br />
-									जब ख़ुद से मुलाक़ात है<br />
-									<br />
-									सीना ताने आँख घुमाए<br />
-									हर लफ्ज़ में दो बात हैं<br />
-									व्यर्थ बेदर्दी, जीवंत मतली<br />
-									जब ख़ुद से मुलाक़ात है
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Acquaintance (2017)"
-									dir="auto"
-									class="heading"
-									id="Acquaintance_(2017)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Acquaintance (2017)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									Today, an old acquaintance caught my
-									gaze.<br />
-									Acknowledging my gaze, he stared back,<br />
-									His eyes glowing cheerful with terror.<br />
-									<br />
-									He tried, but couldn’t hide the disgust.<br />
-									After all, I knew him as well as myself;<br />
-									And yet, I could not remember his name.<br />
-									<br />
-									Inches away, my breath condensed on the
-									glass.<br />
-									The guilt began to crawl under my skin,<br />
-									As the intimacy between us rang hollow.<br />
-									<br />
-									Extending my arm with a firm hand,<br />
-									I hoped to set things right for the last
-									time.<br />
-									The blood stained the floor below.<br />
-									<br />
-									Once again, I could feel the shame separate
-									us.<br />
-									The harder I tried to polish the mirror,<br />
-									The clearer the cracks between us became.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Four (2017)"
-									dir="auto"
-									class="heading"
-									id="Four_(2017)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Four (2017)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									Sweating ashes<br />
-									Never ready<br />
-									Put on glasses<br />
-									Head feels heavy<br />
-									Self delusion<br />
-									Red eyes run dry<br />
-									Sight distortion<br />
-									Tears won't comply<br />
-									<br />
-									I am nothing<br />
-									Feeling sorry<br />
-									Reach out to sing<br />
-									Windows block me<br />
-									Scratch head in daze<br />
-									Help but notice<br />
-									Waves sync in phase<br />
-									I control this<br />
-									<br />
-									Holding my reins<br />
-									Pulling southward<br />
-									Wake up in vain<br />
-									Life is absurd<br />
-									Doubt did not die<br />
-									All-consuming<br />
-									Think but don't try<br />
-									Wisdom blooming<br />
-									<br />
-									Skin peeling off<br />
-									Dirty doormat<br />
-									Sour throat and cough<br />
-									Brain in a vat<br />
-									Restrict myself<br />
-									Free in safekeep<br />
-									All in your head<br />
-									Go back to sleep.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Poetry (2017)"
-									dir="auto"
-									class="heading"
-									id="Poetry_(2017)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Poetry (2017)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									Ruled paper, pen in hand<br />
-									Scribbles all over the sheet<br />
-									Words that barely rhyme<br />
-									No symbolism to be found<br />
-									Would this be called poetry?<br />
-									<br />
-									Sloppy artificial intelligence<br />
-									Crawls through written works<br />
-									An unordered list of words<br />
-									Thrown together, gibberish<br />
-									Would this be called poetry?<br />
-									<br />
-									Paintbrush in hand, no paint<br />
-									Air flows across the canvas<br />
-									The fabric bends quite slightly<br />
-									Not the same as purchased<br />
-									Would this be called poetry?<br />
-									<br />
-									Broken piano plays a note<br />
-									Sustained for hours, days<br />
-									The performer loses himself<br />
-									Applause, acclaim, accolades<br />
-									Would this be called poetry?<br />
-									<br />
-									Life, death, all that is absurd<br />
-									Sunshine seen for half a year<br />
-									Loved ones dead in their arms<br />
-									Curtains fresh out of laundry<br />
-									Would this be called poetry?<br />
-									<br />
-									Half the world at consensus<br />
-									Critics proud of their lives<br />
-									Museums and classes alike<br />
-									It is as true as it could be<br />
-									This would be called poetry.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Enemy (2017)"
-									dir="auto"
-									class="heading"
-									id="Enemy_(2017)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Enemy (2017)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									Every entry sees regret<br />
-									Men ebb gently, tested well<br />
-									Feet smell trenches, legs swell clenched<br />
-									Feel deeds felt spell hell’s wet depths.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Apathy (2016)"
-									dir="auto"
-									class="heading"
-									id="Apathy_(2016)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Apathy (2016)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									Award thy acts that fly as ash<br />
-									As wars at dawn halt dry?<br />
-									Nay, anarchy always stars away<br />
-									As man acts amply sly<br />
-									Hands stank as tar at all afar<br />
-									Ajax had lay a cry<br />
-									All wars past, and wars that apply<br />
-									All arts man arms as wry.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Haikus (2016–2017)"
-									dir="auto"
-									class="heading"
-									id="Haikus_(2016–2017)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Haikus (2016–2017)
-								</h2>
-							</div>
-							<div class="el-h3">
-								<h3
-									data-heading="Cosmos (2017)"
-									dir="auto"
-									class="heading"
-									id="Cosmos_(2017)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Cosmos (2017)
-								</h3>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									Man looks at himself<br />
-									inside, eternal cosmos—<br />
-									the spilled guts of God.
-								</p>
-							</div>
-							<div class="el-h3">
-								<h3
-									data-heading="Time (2016)"
-									dir="auto"
-									class="heading"
-									id="Time_(2016)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Time (2016)
-								</h3>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									I watch Time slip by<br />
-									She is elegant, yet shy—<br />
-									Her sands scar my hands.
-								</p>
-							</div>
-							<div class="el-h3">
-								<h3
-									data-heading="Paths (2016)"
-									dir="auto"
-									class="heading"
-									id="Paths_(2016)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Paths (2016)
-								</h3>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									The road splits in half<br />
-									Each path wildly different—<br />
-									The trees block the light.
-								</p>
-							</div>
-							<div class="el-h3">
-								<h3
-									data-heading="Sirens (2016)"
-									dir="auto"
-									class="heading"
-									id="Sirens_(2016)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Sirens (2016)
-								</h3>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									Sirens blare throughout<br />
-									Men fall to their knees, helpless—<br />
-									The deaf are laughing.
-								</p>
-							</div>
-							<div class="el-h3">
-								<h3
-									data-heading="Brilliant (2016)"
-									dir="auto"
-									class="heading"
-									id="Brilliant_(2016)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Brilliant (2016)
-								</h3>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									A brilliant mind<br />
-									Driven to realms of madness—<br />
-									Others watch and laugh.
-								</p>
-							</div>
-							<div class="el-h3">
-								<h3
-									data-heading="Knots (2016)"
-									dir="auto"
-									class="heading"
-									id="Knots_(2016)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Knots (2016)
-								</h3>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									Men walk on tightropes<br />
-									In harmony, they pace forth—<br />
-									The knots will betray.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Boat (2016)"
-									dir="auto"
-									class="heading"
-									id="Boat_(2016)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Boat (2016)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									A man<br />
-									Old and alone<br />
-									Sails a broken boat<br />
-									With no company but an indifferent sea<br />
-									Searching not for game or food<br />
-									But rather for solitude.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="Listen (2016)"
-									dir="auto"
-									class="heading"
-									id="Listen_(2016)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>Listen (2016)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									Listen closely,<br />
-									And you’ll hear<br />
-									The trees are talking,<br />
-									The message clear<br />
-									<br />
-									The wind blows,<br />
-									The leaves, they fly<br />
-									It’s all controlled,<br />
-									It’s all compliance<br />
-									<br />
-									The mist is fading,<br />
-									The sky turns green<br />
-									The moon makes way,<br />
-									For a sun unseen<br />
-									<br />
-									And the ground will split,<br />
-									Under rolling grass<br />
-									The fires will roar,<br />
-									In a cosmic dance<br />
-									<br />
-									The pain paves way,<br />
-									For virtual bliss<br />
-									Illusions real,<br />
-									Our dreams amiss<br />
-									<br />
-									And the sun will shine,<br />
-									The fires enraged<br />
-									The leaves will smile,<br />
-									In clear restraint<br />
-									<br />
-									And the sun will shine,<br />
-									As leaves are dragged<br />
-									Through fading mist,<br />
-									Into the cracks<br />
-									<br />
-									The dance is set,<br />
-									Foretold in plain<br />
-									An endless sun,<br />
-									An endless rain.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-h2">
-								<h2
-									data-heading="The Machine (2016)"
-									dir="auto"
-									class="heading"
-									id="The_Machine_(2016)_0"
-								>
-									<span
-										class="heading-collapse-indicator collapse-indicator collapse-icon"
-										><svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											class="svg-icon right-triangle"
-										>
-											<path
-												d="M3 8L12 17L21 8"
-											></path></svg></span
-									>The Machine (2016)
-								</h2>
-							</div>
-							<div class="el-p">
-								<p dir="auto">
-									The machine is immortal<br />
-									It towers above all<br />
-									Leaving what is below<br />
-									In endless shadow<br />
-									<br />
-									It spreads far and wide<br />
-									From the river to the mine<br />
-									Watching the weak bend<br />
-									The hunger never ends<br />
-									<br />
-									The wheels keep turning<br />
-									No weight heavy enough<br />
-									To stop the giant cogs<br />
-									That turn through the fog<br />
-									<br />
-									He watched it day and night<br />
-									Waiting for the time<br />
-									His people would be free<br />
-									An end to slavery<br />
-									<br />
-									When would the time come?<br />
-									The wait was futile<br />
-									The only option, he felt<br />
-									Was to bring change himself<br />
-									<br />
-									Close ones rejected<br />
-									Others tried to repress<br />
-									The machine, they said<br />
-									Would never come to an end<br />
-									<br />
-									The people had been tricked<br />
-									But his will, it was strong<br />
-									In the darkest hour of night<br />
-									The machine would be set alight!<br />
-									<br />
-									He set out, untouched<br />
-									Knowing their eyes watched<br />
-									Every step he came to take<br />
-									Wishing for a brighter day<br />
-									<br />
-									He sneaked through the fog<br />
-									Into the machine, at last<br />
-									A tall tower that fed on fears<br />
-									A hollow tube with endless gears<br />
-									<br />
-									It was then that he could see<br />
-									The heart of the machine<br />
-									A thousand people operating<br />
-									A million people under strings<br />
-									<br />
-									He had met his nightmare<br />
-									The machine had taken control<br />
-									The people were mere slaves<br />
-									All hope was set ablaze<br />
-									<br />
-									He knew they wished an end<br />
-									For they were human too<br />
-									He looked into their eyes<br />
-									It was clear, the despise<br />
-									<br />
-									He threw his hands in defeat<br />
-									The people, they understood<br />
-									They tore the strings and broke free<br />
-									It couldn't have been trickery!<br />
-									<br />
-									Could he have won the fight?<br />
-									Wondered he who realized<br />
-									The strong mob ran, it gathered<br />
-									Around him, now shattered<br />
-									<br />
-									The emotion had numbed his pain<br />
-									The blood, it ran across the floor<br />
-									As the people dug into his flesh<br />
-									He was left to bleed to death<br />
-									<br />
-									The rain washed away the blood<br />
-									No stains allowed to remain<br />
-									A dying man had lost the fight<br />
-									A dying man now realized<br />
-									<br />
-									The machine, it fed on men<br />
-									The men fed on the machine<br />
-									People tied themselves to strings<br />
-									They wanted what the machine brings<br />
-									<br />
-									The people did not want freedom<br />
-									They wanted to be slaves<br />
-									The ones who fought against<br />
-									Their efforts were in vain<br />
-									<br />
-									The machine, it stays immortal<br />
-									As it towers above all<br />
-									Spreading far and wide<br />
-									Inside the human mind.
-								</p>
-							</div>
-							<div class="el-hr"><hr /></div>
-							<div class="el-p">
-								<p dir="auto"><b> </b></p>
-								<center>
-									<b> © Essex Rumi 2026 CC-BY-NC </b>
-								</center>
-								<b> </b>
-								<p dir="auto"></p>
-							</div>
-							<div class="footer">
-								<div class="data-bar"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div
-					id="right-content"
-					class="leaf"
-					style="--sidebar-width: var(--sidebar-width-right)"
-				>
-					<div id="right-sidebar" class="sidebar">
-						<div class="sidebar-handle"></div>
-						<div class="sidebar-topbar">
-							<div class="topbar-content"></div>
-							<div class="clickable-icon sidebar-collapse-icon">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									class="svg-icon sidebar-toggle-button-icon"
-								>
-									<rect
-										x="1"
-										y="2"
-										width="22"
-										height="20"
-										rx="4"
-									></rect>
-									<rect
-										x="4"
-										y="5"
-										width="2"
-										height="14"
-										rx="2"
-										fill="currentColor"
-										class="sidebar-toggle-icon-inner"
-									></rect>
-								</svg>
-							</div>
-						</div>
-						<div class="sidebar-content-wrapper">
-							<div
-								id="right-sidebar-content"
-								class="leaf-content"
-							></div>
-						</div>
-						<script defer="">
-							let rs = document.querySelector("#right-sidebar");
-							rs.classList.toggle(
-								"is-collapsed",
-								window.innerWidth < 768,
-							);
-							rs.style.setProperty(
-								"--sidebar-width",
-								localStorage.getItem("sidebar-right-width"),
-							);
-						</script>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
-</html>
+<!DOCTYPE html> <html lang="en"><head>
+<title>Poetry (2016-)</title>
+<base href=".">
+<meta name="pathname" content="poetry-(2016-).html">
+<meta name="description" content="Rumi’s Writing Portfolio - Poetry (2016-)">
+<meta property="og:title" content="Poetry (2016-)">
+<meta property="og:description" content="Rumi’s Writing Portfolio - Poetry (2016-)">
+<meta property="og:type" content="website">
+<meta property="og:url" content="poetry-(2016-).html">
+<meta property="og:image" content="undefined">
+<meta charset="UTF-8"><meta property="og:site_name" content="Rumi’s Writing Portfolio"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0"><script async="" id="webpage-script" src="site-lib/scripts/webpage.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><link rel="icon" href="site-lib/media/favicon.png"><link rel="preload" href="site-lib/styles/snippets.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="site-lib/styles/snippets.css"></noscript><link rel="stylesheet" href="site-lib/styles/obsidian.css"><link rel="stylesheet" href="site-lib/styles/theme.css"><link rel="preload" href="site-lib/styles/global-variable-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="site-lib/styles/global-variable-styles.css"></noscript><link rel="preload" href="site-lib/styles/supported-plugins.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="site-lib/styles/supported-plugins.css"></noscript><link rel="preload" href="site-lib/styles/main-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="site-lib/styles/main-styles.css"></noscript><style>body{--line-width:40em;--line-width-adaptive:40em;--file-line-width:40em;--sidebar-width:min(20em, 80vw);--collapse-arrow-size:11px;--tree-vertical-spacing:1.3em;--sidebar-margin:12px}:root{background-color:#202124}.sidebar{height:100%;font-size:14px;z-index:10;min-width:calc(var(--sidebar-width) + var(--divider-width-hover));max-width:calc(var(--sidebar-width) + var(--divider-width-hover));position:relative;overflow:hidden;overflow:clip;transition:min-width ease-in-out,max-width ease-in-out;transition-duration:.2s;contain:size}#left-sidebar{left:0}#right-sidebar{right:0}.sidebar.is-collapsed{min-width:0;max-width:0}.sidebar.floating{position:absolute}.sidebar .leaf-content{height:100%;min-width:calc(var(--sidebar-width) - var(--divider-width-hover));top:0;padding:var(--sidebar-margin);padding-top:4em;line-height:var(--line-height-tight);background-color:var(--background-secondary);transition:background-color,border-right,border-left,box-shadow;transition-duration:var(--color-fade-speed);transition-timing-function:ease-in-out;position:absolute;display:flex;flex-direction:column}.sidebar:not(.is-collapsed) .leaf-content{min-width:calc(max(100%,var(--sidebar-width)) - 3px);max-width:calc(max(100%,var(--sidebar-width)) - 3px)}#left-sidebar-content{left:0;border-top-right-radius:var(--radius-l);border-bottom-right-radius:var(--radius-l)}#right-sidebar-content{right:0;border-top-left-radius:var(--radius-l);border-bottom-left-radius:var(--radius-l)}.sidebar #left-sidebar-content,.sidebar #right-sidebar-content{contain:none!important;container-type:normal!important;animation:none!important}.sidebar:has(.leaf-content:empty):has(.topbar-content:empty){display:none}.sidebar-topbar{height:calc(2.3em + 2 * var(--sidebar-margin));width:var(--sidebar-width);padding:var(--sidebar-margin);z-index:1;position:fixed;display:flex;align-items:center;transition:width ease-in-out;transition-duration:inherit}.sidebar.is-collapsed .sidebar-topbar{width:calc(2.3em + var(--sidebar-margin) * 2)}.sidebar .sidebar-topbar.is-collapsed{width:0}#left-sidebar .sidebar-topbar{left:0;flex-direction:row;border-top-right-radius:var(--radius-l)}#right-sidebar .sidebar-topbar{right:0;flex-direction:row-reverse;border-top-left-radius:var(--radius-l)}#left-sidebar .topbar-content{margin-right:calc(2.3em + var(--sidebar-margin));flex-direction:row}#right-sidebar .topbar-content{margin-left:calc(2.3em + var(--sidebar-margin));flex-direction:row-reverse}.topbar-content{overflow:hidden visible;overflow:clip visible;width:100%;height:100%;display:flex;align-items:center;transition:inherit}.sidebar.is-collapsed .topbar-content{width:0;transition:inherit}.clickable-icon.sidebar-collapse-icon{background-color:transparent;color:var(--icon-color-focused);padding:2px!important;margin:0!important;height:100%!important;width:2.3em!important;margin-inline:0.14em!important;position:absolute}#left-sidebar .clickable-icon.sidebar-collapse-icon{right:var(--sidebar-margin)}#right-sidebar .clickable-icon.sidebar-collapse-icon{transform:scaleX(-1);transform-origin:center;left:var(--sidebar-margin)}.clickable-icon.sidebar-collapse-icon svg.svg-icon{width:80%;height:80%}.sidebar:not(.is-collapsed) .clickable-icon.sidebar-collapse-icon svg.svg-icon .sidebar-toggle-icon-inner{width:24%}.feature-title{margin-left:1px;text-transform:uppercase;letter-spacing:.06em;margin-top:.75em;margin-bottom:.75em}.feature-header{display:flex;align-items:center;padding-top:0;font-size:1em;padding-left:0}body.floating-sidebars .sidebar{position:absolute}body{transition:background-color var(--color-fade-speed) ease-in-out}#navbar:not(:empty){display:flex;align-items:center;justify-content:space-between;padding:.5em 1em;width:100%}#main{display:flex;flex-direction:column;height:100%;width:100%;align-items:stretch;justify-content:center}#main-horizontal{display:flex;flex-direction:row;flex-grow:1;width:100%;align-items:stretch;justify-content:center}#center-content{flex-basis:100%;max-width:100%;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;transition:opacity .2s ease-in-out;contain:inline-size}.hide{opacity:0!important;transition:opacity .2s ease-in-out;pointer-events:none}#center-content>.obsidian-document{padding-left:2em;padding-right:1em;margin-bottom:0;width:100%;width:-webkit-fill-available;width:-moz-available;width:fill-available;transition:background-color var(--color-fade-speed) ease-in-out;border-top-right-radius:var(--window-radius,var(--radius-m));border-top-left-radius:var(--window-radius,var(--radius-m));overflow-x:hidden!important;overflow-y:auto!important;display:flex!important;flex-direction:column!important;align-items:center!important;contain:inline-size}body #center-content>.obsidian-document>.markdown-preview-sizer{padding-bottom:80vh;width:100%;max-width:var(--line-width);flex-basis:var(--line-width);transition:background-color var(--color-fade-speed) ease-in-out;contain:inline-size}#center-content>.obsidian-document>div{width:100%!important;transition:background-color var(--color-fade-speed) ease-in-out;contain:inline-size}#center-content>.obsidian-document:not([data-type=markdown]).embed{display:flex;padding:1em;height:100%;width:100%;align-items:center;justify-content:center}#center-content>.obsidian-document:not([data-type=markdown]).embed>*{max-width:100%;max-height:100%;object-fit:contain}:not(h1,h2,h3,h4,h5,h6,li):has(> :is(.math,table)){overflow-x:auto!important}#center-content>.obsidian-document:not([data-type=markdown]){overflow-x:auto;contain:content;padding:0;margin:0;height:100%}.obsidian-document[data-type=attachment]{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;width:100%}.obsidian-document[data-type=attachment]>*{outline:0;border:none;box-shadow:none}.obsidian-document[data-type=attachment] :is(img){max-width:90%;max-height:90%;object-fit:contain}.obsidian-document[data-type=attachment]>:is(audio){width:100%;max-width:min(90%,var(--line-width))}.obsidian-document[data-type=attachment]>:is(embed,iframe,video){width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}.canvas-wrapper>:is(.header,.footer){z-index:100;position:absolute;display:flex;justify-content:center;flex-direction:column;width:100%;align-items:center}.scroll-highlight{position:absolute;width:100%;height:100%;pointer-events:none;z-index:1000;background-color:hsla(var(--color-accent-hsl),.25);opacity:0;padding:1em;inset:50%;translate:-50% -50%;border-radius:var(--radius-s)}</style><script defer="">async function loadIncludes(){let e=document.querySelectorAll("link[itemprop='include']");for(const t of e){let e=t.getAttribute("href");try{let o="";if(e.startsWith("https:")||e.startsWith("http:")||"file:"!=window.location.protocol){const n=await fetch(e);if(!n.ok){console.log("Could not include file: "+e),t?.remove();continue}o=await n.text()}else{const t=document.getElementById(btoa(encodeURI(e)));if(t){const e=JSON.parse(decodeURI(atob(t.getAttribute("value")??"")));o=e?.data??""}}let n=document.createRange().createContextualFragment(o);t.before(n),t.remove(),console.log("Included text: "+o),console.log("Included file: "+e)}catch(o){t?.remove(),console.log("Could not include file: "+e,o);continue}}}document.addEventListener("DOMContentLoaded",(()=>{loadIncludes()}));let isFileProtocol="file:"==location.protocol;function waitLoadScripts(e,t){let o=e.map((e=>document.getElementById(e+"-script")));!function e(n){let l=o[n],c=n+1;l?(l&&"true"!=l.getAttribute("loaded")||n<o.length&&e(c),n<o.length&&l.addEventListener("load",(()=>e(c)))):n<o.length?e(c):t()}(0)}</script></head><body class="publish css-settings-manager mod-windows is-hidden-frameless styled-scrollbars show-view-header minimal-default-light minimal-flexoki-dark borders-none colorful-frame links-int-on links-ext-on full-width-media trim-cols h1-l sidebar-tabs-plain-square tab-names-on table-lines tabs-plain-square is-focused"><script defer="">let theme=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");"dark"==theme?(document.body.classList.add("theme-dark"),document.body.classList.remove("theme-light")):(document.body.classList.add("theme-light"),document.body.classList.remove("theme-dark")),window.innerWidth<480?document.body.classList.add("is-phone"):window.innerWidth<768?document.body.classList.add("is-tablet"):window.innerWidth<1024?document.body.classList.add("is-small-screen"):document.body.classList.add("is-large-screen")</script><div id="main"><div id="navbar"></div><div id="main-horizontal"><div id="left-content" class="leaf" style="--sidebar-width: var(--sidebar-width-left);"><div id="left-sidebar" class="sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"><div id="search-container"><div id="search-wrapper"><input enterkeyhint="search" type="search" spellcheck="false" placeholder="Search..."><div aria-label="Clear search" id="search-clear-button"></div></div></div><label class="theme-toggle-container" for="theme-toggle-input" id=""><input class="theme-toggle-input" type="checkbox" id="theme-toggle-input"><div class="toggle-background"></div></label></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon sidebar-toggle-button-icon"><rect x="1" y="2" width="22" height="20" rx="4"></rect><rect x="4" y="5" width="2" height="14" rx="2" fill="currentColor" class="sidebar-toggle-icon-inner"></rect></svg></div></div><div class="sidebar-content-wrapper"><div id="left-sidebar-content" class="leaf-content"><link itemprop="include" href="site-lib/html/file-tree-content.html"><div id="outline" class=" tree-container"><div class="feature-header"><div class="feature-title">Table Of Contents</div><button class="clickable-icon nav-action-button tree-collapse-all" aria-label="Collapse All"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg></button></div><div class="tree-item mod-collapsible" data-depth="1"><a class="tree-item-self is-clickable mod-collapsible" href="#Poetry_(2016-)_0" data-path="#Poetry_(2016-)_0"><div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><div class="tree-item-inner heading-link" heading-name="Poetry (2016-)">Poetry (2016-)</div></a><div class="tree-item-children"><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Introduction_0" data-path="#Introduction_0"><div class="tree-item-inner heading-link" heading-name="Introduction">Introduction</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Another_Day,_Another_Time_(2019)_0" data-path="#Another_Day,_Another_Time_(2019)_0"><div class="tree-item-inner heading-link" heading-name="Another Day, Another Time (2019)">Another Day, Another Time (2019)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Eyes_(2018)_0" data-path="#Eyes_(2018)_0"><div class="tree-item-inner heading-link" heading-name="Eyes (2018)">Eyes (2018)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Knife_(2018)_0" data-path="#Knife_(2018)_0"><div class="tree-item-inner heading-link" heading-name="Knife (2018)">Knife (2018)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Blur_(2018)_0" data-path="#Blur_(2018)_0"><div class="tree-item-inner heading-link" heading-name="Blur (2018)">Blur (2018)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Wings_(2017)_0" data-path="#Wings_(2017)_0"><div class="tree-item-inner heading-link" heading-name="Wings (2017)">Wings (2017)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Guitar_(2017)_0" data-path="#Guitar_(2017)_0"><div class="tree-item-inner heading-link" heading-name="Guitar (2017)">Guitar (2017)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Mind_(2017)_0" data-path="#Mind_(2017)_0"><div class="tree-item-inner heading-link" heading-name="Mind (2017)">Mind (2017)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#River_(2017)_0" data-path="#River_(2017)_0"><div class="tree-item-inner heading-link" heading-name="River (2017)">River (2017)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Ears_(2017)_0" data-path="#Ears_(2017)_0"><div class="tree-item-inner heading-link" heading-name="Ears (2017)">Ears (2017)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Mulaqaat_(2017)_0" data-path="#Mulaqaat_(2017)_0"><div class="tree-item-inner heading-link" heading-name="Mulaqaat (2017)">Mulaqaat (2017)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Acquaintance_(2017)_0" data-path="#Acquaintance_(2017)_0"><div class="tree-item-inner heading-link" heading-name="Acquaintance (2017)">Acquaintance (2017)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Four_(2017)_0" data-path="#Four_(2017)_0"><div class="tree-item-inner heading-link" heading-name="Four (2017)">Four (2017)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Poetry_(2017)_0" data-path="#Poetry_(2017)_0"><div class="tree-item-inner heading-link" heading-name="Poetry (2017)">Poetry (2017)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Enemy_(2017)_0" data-path="#Enemy_(2017)_0"><div class="tree-item-inner heading-link" heading-name="Enemy (2017)">Enemy (2017)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Apathy_(2016)_0" data-path="#Apathy_(2016)_0"><div class="tree-item-inner heading-link" heading-name="Apathy (2016)">Apathy (2016)</div></a><div class="tree-item-children"></div></div><div class="tree-item mod-collapsible" data-depth="2"><a class="tree-item-self is-clickable mod-collapsible" href="#Haikus_(2016–2017)_0" data-path="#Haikus_(2016–2017)_0"><div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><div class="tree-item-inner heading-link" heading-name="Haikus (2016–2017)">Haikus (2016–2017)</div></a><div class="tree-item-children"><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="#Cosmos_(2017)_0" data-path="#Cosmos_(2017)_0"><div class="tree-item-inner heading-link" heading-name="Cosmos (2017)">Cosmos (2017)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="#Time_(2016)_0" data-path="#Time_(2016)_0"><div class="tree-item-inner heading-link" heading-name="Time (2016)">Time (2016)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="#Paths_(2016)_0" data-path="#Paths_(2016)_0"><div class="tree-item-inner heading-link" heading-name="Paths (2016)">Paths (2016)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="#Sirens_(2016)_0" data-path="#Sirens_(2016)_0"><div class="tree-item-inner heading-link" heading-name="Sirens (2016)">Sirens (2016)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="#Brilliant_(2016)_0" data-path="#Brilliant_(2016)_0"><div class="tree-item-inner heading-link" heading-name="Brilliant (2016)">Brilliant (2016)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-item-self is-clickable" href="#Knots_(2016)_0" data-path="#Knots_(2016)_0"><div class="tree-item-inner heading-link" heading-name="Knots (2016)">Knots (2016)</div></a><div class="tree-item-children"></div></div></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Boat_(2016)_0" data-path="#Boat_(2016)_0"><div class="tree-item-inner heading-link" heading-name="Boat (2016)">Boat (2016)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#Listen_(2016)_0" data-path="#Listen_(2016)_0"><div class="tree-item-inner heading-link" heading-name="Listen (2016)">Listen (2016)</div></a><div class="tree-item-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-item-self is-clickable" href="#The_Machine_(2016)_0" data-path="#The_Machine_(2016)_0"><div class="tree-item-inner heading-link" heading-name="The Machine (2016)">The Machine (2016)</div></a><div class="tree-item-children"></div></div></div></div></div></div></div><script defer="">let ls = document.querySelector("#left-sidebar"); ls.classList.toggle("is-collapsed", window.innerWidth < 768); ls.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-left-width"));</script></div></div><div id="center-content" class="leaf"><div class="obsidian-document markdown-preview-view markdown-rendered node-insert-event is-readable-line-width show-indentation-guide" data-type="markdown"><style id="MJX-CHTML-styles"></style><div class="markdown-preview-sizer markdown-preview-section"><div class="header"><h1 class="page-title heading" id="Poetry_(2016-)_0">Poetry (2016-)</h1><div class="data-bar"></div></div><div class="markdown-preview-pusher" style="width: 1px; height: 0.1px; margin-bottom: 0px;"></div><div class="el-h2"><h2 data-heading="Introduction" dir="auto" class="heading" id="Introduction_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Introduction</h2></div><div class="el-p"><p dir="auto">My first considerable brush with poetry was at around eight or nine years of age, with a free verse piece I wrote for an online poetry community, but I did not pursue the hobby seriously until I was fifteen, when it became my primary method to cope with and channel intense thoughts and emotions. Written here is a select section of my work in the medium starting from what I wrote then, in descending order of year of writing.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Another Day, Another Time (2019)" dir="auto" class="heading" id="Another_Day,_Another_Time_(2019)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Another Day, Another Time (2019)</h2></div><div class="el-p"><p dir="auto">It’s easy to do your job all fine<br>
+Get yourself a raise a noon<br>
+You go home, drink a glass of wine<br>
+But there’s a thousand things to do<br>
+But all the clocks approach midnight<br>
+As He sounds the bells of doom<br>
+That’s the life you’ve got to live<br>
+For being you<br>
+<br>
+It’s easy to pick up the telephone<br>
+Call a friend you’re meeting soon<br>
+You tell them things don’t seem alright<br>
+And they say they feel so too<br>
+And all the faith you had, at once<br>
+Leaves crashing through the roof<br>
+That’s the life you’ve got to live<br>
+For being you<br>
+<br>
+It’s easy to let go of everything<br>
+When your head splits into two<br>
+You’re dazed and wrapped in delusion<br>
+“Surely, this could not be true”<br>
+But all the sanity that’s left<br>
+Declares you’ve gone cuckoo<br>
+That’s the life you’ve got to live<br>
+For being you.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Eyes (2018)" dir="auto" class="heading" id="Eyes_(2018)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Eyes (2018)</h2></div><div class="el-p"><p dir="auto">I open wide my eyes.<br>
+Gazing upon the air,<br>
+The living seem to die.<br>
+<br>
+I swiftly shut my eyes.<br>
+Drawn bold into pitch black,<br>
+Their demise comes alive.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Knife (2018)" dir="auto" class="heading" id="Knife_(2018)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Knife (2018)</h2></div><div class="el-p"><p dir="auto">Holding a knife in your hand,<br>
+Stand in front of a mirror.<br>
+Point the blade at your image.<br>
+Do ask yourself for consent,<br>
+Lest it turns into murder.<br>
+When you feel like losing it,<br>
+Stab the image in the heart.<br>
+Run your hands over the cracks;<br>
+Wear them with pride. Love yourself.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Blur (2018)" dir="auto" class="heading" id="Blur_(2018)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Blur (2018)</h2></div><div class="el-p"><p dir="auto">Monday was a blur<br>
+Tuesday was absurd and<br>
+Wednesday could’ve been better<br>
+And Thursday was a burden<br>
+<br>
+On Friday I broke down<br>
+On Saturday I’m crying<br>
+Sunday, I’m in bed<br>
+I look at myself dying<br>
+<br>
+If I told myself it’d all be fine tomorrow<br>
+I’d live to hope I’m wrong.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Wings (2017)" dir="auto" class="heading" id="Wings_(2017)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Wings (2017)</h2></div><div class="el-p"><p dir="auto">A friend once told me of a male<br>
+Whose life was dull and oft in vain<br>
+Until, one night, amidst the black<br>
+A violent pain surged through his back<br>
+<br>
+Looking to the mirror, he saw<br>
+A bump or bruise begin to form<br>
+Further into the night, confused<br>
+He felt his spine split into two<br>
+<br>
+As darkness succumbed to morning<br>
+He woke up wrapped in crimson sheets<br>
+A bit of bone’d torn through the flesh<br>
+His back grew numb, the pain suppressed<br>
+<br>
+The light gave way to dark unseen<br>
+A strange feeling began to creep<br>
+The male, for all the hurt it took<br>
+Could not resist the urge to look<br>
+<br>
+But in the mirror, broken cold<br>
+Stood a grotesque of tangled bone<br>
+Around the pink, there’d grown a skin<br>
+Stretched lifeless, nearly paper-thin<br>
+<br>
+At dawn came contempt and disgust<br>
+A sense of wonder followed dusk<br>
+Stroking his newfound pair of wings<br>
+The male now cried in vanity<br>
+<br>
+Next day, while he was still in bed<br>
+He tried to choke himself to death<br>
+The wings began to flutter wild<br>
+His face, now blue, let out a smile<br>
+<br>
+The man had died, the body’d killed<br>
+The wings spread out devoid of guilt<br>
+A splash of blood, a test of might<br>
+The bird had now begun its flight.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Guitar (2017)" dir="auto" class="heading" id="Guitar_(2017)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Guitar (2017)</h2></div><div class="el-p"><p dir="auto">I have a guitar at my place<br>
+It isn’t mine, but takes no space<br>
+The strings are loose, the board’s abused<br>
+But somehow it sounds like it should<br>
+<br>
+The owner came in yesterday<br>
+To tell me it didn’t look the same<br>
+He blamed me for the mess I’d made<br>
+I told him, no, I couldn’t play<br>
+<br>
+If I stand close and take a look<br>
+I see a face on polished wood<br>
+The skin is loose, the lips abused<br>
+But it feels just the way it should<br>
+<br>
+For now, the guitar has no home<br>
+It stays with me, yet stays alone<br>
+But when I’ve cleaned the mess I’ve made<br>
+I’ll sit down, play it to my grave.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Mind (2017)" dir="auto" class="heading" id="Mind_(2017)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Mind (2017)</h2></div><div class="el-p"><p dir="auto">I have, indeed, lost my mind.<br>
+It should not be surprising,<br>
+Considering the fact that<br>
+It’s been on my mind for weeks.<br>
+<br>
+A textbook case of drainage<br>
+Of the brain through the nostrils<br>
+Seems to be behind the loss.<br>
+An old trick, but effective.<br>
+<br>
+Right here is where I first felt<br>
+A lack of nervous tissue—<br>
+Never mind. It’s still with me.<br>
+Must’ve lost my mind again.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="River (2017)" dir="auto" class="heading" id="River_(2017)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>River (2017)</h2></div><div class="el-p"><p dir="auto">I see a river flow.<br>
+I ask it where it goes.<br>
+I receive no response.<br>
+<br>
+I run my hand along.<br>
+I feel it moving strong.<br>
+I asked the wrong question.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Ears (2017)" dir="auto" class="heading" id="Ears_(2017)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Ears (2017)</h2></div><div class="el-p"><p dir="auto">I once heard a distinct noise,<br>
+The kind that brings distraction.<br>
+I looked outside my window;<br>
+The noise was a man’s, in white.<br>
+<br>
+I walked outside to ask him<br>
+What the noise was all about.<br>
+The man did not respond, but<br>
+I could see him take it in.<br>
+<br>
+A victim of distraction,<br>
+I wanted the noise to stop.<br>
+As I began to speak so,<br>
+I noticed the man lacked ears.<br>
+<br>
+Figuring the man could read,<br>
+I wrote on a paper sheet,<br>
+“Must you really make this noise<br>
+To bring to us distraction?”<br>
+<br>
+The man read what I’d written<br>
+And seemed to smile a little.<br>
+He took the pen I wrote with,<br>
+And replied in soft cursive,<br>
+<br>
+“I too had been distracted<br>
+By the noise that plagues us all.<br>
+Since I knew it would not stop,<br>
+I cut my ears off my head.<br>
+<br>
+“Would you be interested<br>
+In buying, fifty apiece?<br>
+They are old, but sensitive;<br>
+They ought to fit your sockets.”<br>
+<br>
+The idea was marvellous.<br>
+I went back home, where I’d been,<br>
+Collected what I needed,<br>
+And hurried back to the man.<br>
+<br>
+Handing over my own ears,<br>
+I wrote another message,<br>
+“Here is my pair, freshly cut.<br>
+We could sell them together.”<br>
+<br>
+I have not heard the noise since,<br>
+It brings me no distraction.<br>
+Would you like to buy our ears?<br>
+Mine are young; sixty apiece.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Mulaqaat (2017)" dir="auto" class="heading" id="Mulaqaat_(2017)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Mulaqaat (2017)</h2></div><div class="el-p"><p dir="auto">बंद दरवाज़े खुले हमारे<br>
+क्या दिन है, क्या रात है<br>
+पल भर दूरी, सांस अधूरी<br>
+जब ख़ुद से मुलाक़ात है<br>
+<br>
+सीना ताने आँख घुमाए<br>
+हर लफ्ज़ में दो बात हैं<br>
+व्यर्थ बेदर्दी, जीवंत मतली<br>
+जब ख़ुद से मुलाक़ात है</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Acquaintance (2017)" dir="auto" class="heading" id="Acquaintance_(2017)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Acquaintance (2017)</h2></div><div class="el-p"><p dir="auto">Today, an old acquaintance caught my gaze.<br>
+Acknowledging my gaze, he stared back,<br>
+His eyes glowing cheerful with terror.<br>
+<br>
+He tried, but couldn’t hide the disgust.<br>
+After all, I knew him as well as myself;<br>
+And yet, I could not remember his name.<br>
+<br>
+Inches away, my breath condensed on the glass.<br>
+The guilt began to crawl under my skin,<br>
+As the intimacy between us rang hollow.<br>
+<br>
+Extending my arm with a firm hand,<br>
+I hoped to set things right for the last time.<br>
+The blood stained the floor below.<br>
+<br>
+Once again, I could feel the shame separate us.<br>
+The harder I tried to polish the mirror,<br>
+The clearer the cracks between us became.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Four (2017)" dir="auto" class="heading" id="Four_(2017)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Four (2017)</h2></div><div class="el-p"><p dir="auto">Sweating ashes<br>
+Never ready<br>
+Put on glasses<br>
+Head feels heavy<br>
+Self delusion<br>
+Red eyes run dry<br>
+Sight distortion<br>
+Tears won't comply<br>
+<br>
+I am nothing<br>
+Feeling sorry<br>
+Reach out to sing<br>
+Windows block me<br>
+Scratch head in daze<br>
+Help but notice<br>
+Waves sync in phase<br>
+I control this<br>
+<br>
+Holding my reins<br>
+Pulling southward<br>
+Wake up in vain<br>
+Life is absurd<br>
+Doubt did not die<br>
+All-consuming<br>
+Think but don't try<br>
+Wisdom blooming<br>
+<br>
+Skin peeling off<br>
+Dirty doormat<br>
+Sour throat and cough<br>
+Brain in a vat<br>
+Restrict myself<br>
+Free in safekeep<br>
+All in your head<br>
+Go back to sleep.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Poetry (2017)" dir="auto" class="heading" id="Poetry_(2017)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Poetry (2017)</h2></div><div class="el-p"><p dir="auto">Ruled paper, pen in hand<br>
+Scribbles all over the sheet<br>
+Words that barely rhyme<br>
+No symbolism to be found<br>
+Would this be called poetry?<br>
+<br>
+Sloppy artificial intelligence<br>
+Crawls through written works<br>
+An unordered list of words<br>
+Thrown together, gibberish<br>
+Would this be called poetry?<br>
+<br>
+Paintbrush in hand, no paint<br>
+Air flows across the canvas<br>
+The fabric bends quite slightly<br>
+Not the same as purchased<br>
+Would this be called poetry?<br>
+<br>
+Broken piano plays a note<br>
+Sustained for hours, days<br>
+The performer loses himself<br>
+Applause, acclaim, accolades<br>
+Would this be called poetry?<br>
+<br>
+Life, death, all that is absurd<br>
+Sunshine seen for half a year<br>
+Loved ones dead in their arms<br>
+Curtains fresh out of laundry<br>
+Would this be called poetry?<br>
+<br>
+Half the world at consensus<br>
+Critics proud of their lives<br>
+Museums and classes alike<br>
+It is as true as it could be<br>
+This would be called poetry.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Enemy (2017)" dir="auto" class="heading" id="Enemy_(2017)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Enemy (2017)</h2></div><div class="el-p"><p dir="auto">Every entry sees regret<br>
+Men ebb gently, tested well<br>
+Feet smell trenches, legs swell clenched<br>
+Feel deeds felt spell hell’s wet depths.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Apathy (2016)" dir="auto" class="heading" id="Apathy_(2016)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Apathy (2016)</h2></div><div class="el-p"><p dir="auto">Award thy acts that fly as ash<br>
+As wars at dawn halt dry?<br>
+Nay, anarchy always stars away<br>
+As man acts amply sly<br>
+Hands stank as tar at all afar<br>
+Ajax had lay a cry<br>
+All wars past, and wars that apply<br>
+All arts man arms as wry.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Haikus (2016–2017)" dir="auto" class="heading" id="Haikus_(2016–2017)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Haikus (2016–2017)</h2></div><div class="el-h3"><h3 data-heading="Cosmos (2017)" dir="auto" class="heading" id="Cosmos_(2017)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Cosmos (2017)</h3></div><div class="el-p"><p dir="auto">Man looks at himself<br>
+inside, eternal cosmos—<br>
+the spilled guts of God.</p></div><div class="el-h3"><h3 data-heading="Time (2016)" dir="auto" class="heading" id="Time_(2016)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Time (2016)</h3></div><div class="el-p"><p dir="auto">I watch Time slip by<br>
+She is elegant, yet shy—<br>
+Her sands scar my hands.</p></div><div class="el-h3"><h3 data-heading="Paths (2016)" dir="auto" class="heading" id="Paths_(2016)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Paths (2016)</h3></div><div class="el-p"><p dir="auto">The road splits in half<br>
+Each path wildly different—<br>
+The trees block the light.</p></div><div class="el-h3"><h3 data-heading="Sirens (2016)" dir="auto" class="heading" id="Sirens_(2016)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Sirens (2016)</h3></div><div class="el-p"><p dir="auto">Sirens blare throughout<br>
+Men fall to their knees, helpless—<br>
+The deaf are laughing.</p></div><div class="el-h3"><h3 data-heading="Brilliant (2016)" dir="auto" class="heading" id="Brilliant_(2016)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Brilliant (2016)</h3></div><div class="el-p"><p dir="auto">A brilliant mind<br>
+Driven to realms of madness—<br>
+Others watch and laugh.</p></div><div class="el-h3"><h3 data-heading="Knots (2016)" dir="auto" class="heading" id="Knots_(2016)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Knots (2016)</h3></div><div class="el-p"><p dir="auto">Men walk on tightropes<br>
+In harmony, they pace forth—<br>
+The knots will betray.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Boat (2016)" dir="auto" class="heading" id="Boat_(2016)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Boat (2016)</h2></div><div class="el-p"><p dir="auto">A man<br>
+Old and alone<br>
+Sails a broken boat<br>
+With no company but an indifferent sea<br>
+Searching not for game or food<br>
+But rather for solitude.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="Listen (2016)" dir="auto" class="heading" id="Listen_(2016)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>Listen (2016)</h2></div><div class="el-p"><p dir="auto">Listen closely,<br>
+And you’ll hear<br>
+The trees are talking,<br>
+The message clear<br>
+<br>
+The wind blows,<br>
+The leaves, they fly<br>
+It’s all controlled,<br>
+It’s all compliance<br>
+<br>
+The mist is fading,<br>
+The sky turns green<br>
+The moon makes way,<br>
+For a sun unseen<br>
+<br>
+And the ground will split,<br>
+Under rolling grass<br>
+The fires will roar,<br>
+In a cosmic dance<br>
+<br>
+The pain paves way,<br>
+For virtual bliss<br>
+Illusions real,<br>
+Our dreams amiss<br>
+<br>
+And the sun will shine,<br>
+The fires enraged<br>
+The leaves will smile,<br>
+In clear restraint<br>
+<br>
+And the sun will shine,<br>
+As leaves are dragged<br>
+Through fading mist,<br>
+Into the cracks<br>
+<br>
+The dance is set,<br>
+Foretold in plain<br>
+An endless sun,<br>
+An endless rain.</p></div><div class="el-hr"><hr></div><div class="el-h2"><h2 data-heading="The Machine (2016)" dir="auto" class="heading" id="The_Machine_(2016)_0"><span class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></span>The Machine (2016)</h2></div><div class="el-p"><p dir="auto">The machine is immortal<br>
+It towers above all<br>
+Leaving what is below<br>
+In endless shadow<br>
+<br>
+It spreads far and wide<br>
+From the river to the mine<br>
+Watching the weak bend<br>
+The hunger never ends<br>
+<br>
+The wheels keep turning<br>
+No weight heavy enough<br>
+To stop the giant cogs<br>
+That turn through the fog<br>
+<br>
+He watched it day and night<br>
+Waiting for the time<br>
+His people would be free<br>
+An end to slavery<br>
+<br>
+When would the time come?<br>
+The wait was futile<br>
+The only option, he felt<br>
+Was to bring change himself<br>
+<br>
+Close ones rejected<br>
+Others tried to repress<br>
+The machine, they said<br>
+Would never come to an end<br>
+<br>
+The people had been tricked<br>
+But his will, it was strong<br>
+In the darkest hour of night<br>
+The machine would be set alight!<br>
+<br>
+He set out, untouched<br>
+Knowing their eyes watched<br>
+Every step he came to take<br>
+Wishing for a brighter day<br>
+<br>
+He sneaked through the fog<br>
+Into the machine, at last<br>
+A tall tower that fed on fears<br>
+A hollow tube with endless gears<br>
+<br>
+It was then that he could see<br>
+The heart of the machine<br>
+A thousand people operating<br>
+A million people under strings<br>
+<br>
+He had met his nightmare<br>
+The machine had taken control<br>
+The people were mere slaves<br>
+All hope was set ablaze<br>
+<br>
+He knew they wished an end<br>
+For they were human too<br>
+He looked into their eyes<br>
+It was clear, the despise<br>
+<br>
+He threw his hands in defeat<br>
+The people, they understood<br>
+They tore the strings and broke free<br>
+It couldn't have been trickery!<br>
+<br>
+Could he have won the fight?<br>
+Wondered he who realized<br>
+The strong mob ran, it gathered<br>
+Around him, now shattered<br>
+<br>
+The emotion had numbed his pain<br>
+The blood, it ran across the floor<br>
+As the people dug into his flesh<br>
+He was left to bleed to death<br>
+<br>
+The rain washed away the blood<br>
+No stains allowed to remain<br>
+A dying man had lost the fight<br>
+A dying man now realized<br>
+<br>
+The machine, it fed on men<br>
+The men fed on the machine<br>
+People tied themselves to strings<br>
+They wanted what the machine brings<br>
+<br>
+The people did not want freedom<br>
+They wanted to be slaves<br>
+The ones who fought against<br>
+Their efforts were in vain<br>
+<br>
+The machine, it stays immortal<br>
+As it towers above all<br>
+Spreading far and wide<br>
+Inside the human mind.</p></div><div class="el-hr"><hr></div><div class="el-p"><p dir="auto"><b> </b></p><center><b> © Essex Rumi 2026 CC-BY-NC </b></center><b> </b><p dir="auto"></p></div><div class="footer"><div class="data-bar"></div></div></div></div></div><div id="right-content" class="leaf" style="--sidebar-width: var(--sidebar-width-right);"><div id="right-sidebar" class="sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon sidebar-toggle-button-icon"><rect x="1" y="2" width="22" height="20" rx="4"></rect><rect x="4" y="5" width="2" height="14" rx="2" fill="currentColor" class="sidebar-toggle-icon-inner"></rect></svg></div></div><div class="sidebar-content-wrapper"><div id="right-sidebar-content" class="leaf-content"></div></div><script defer="">let rs = document.querySelector("#right-sidebar"); rs.classList.toggle("is-collapsed", window.innerWidth < 768); rs.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-right-width"));</script></div></div></div></div></body></html>
